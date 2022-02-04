@@ -20,8 +20,7 @@
   "homepage": "https://github.com/acando14/apidoc#readme",
   "dependencies": {
     "axios": "^0.25.0",
-    "postman-to-openapi": "^2.1.0",
-    "sleep": "^6.3.0"
+    "postman-to-openapi": "^2.1.0"
   },
   "bin": {
     "clean-output": "src/commands/clean-output.js",
