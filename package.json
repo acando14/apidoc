@@ -1,0 +1,21 @@
+{
+  "name": "apidoc",
+  "version": "1.0.0",
+  "description": "This project is a commandline to make easy interact and generate API DOC from Postman to OpenApi using postman-to-openapi.",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/acando14/apidoc.git"
+  },
+  "keywords": [
+    "Postman",
+    "OpenApi",
+    "CommandlineTool"
+  ],
+  "author": "Alessandro Candon <alexcandy91@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/acando14/apidoc/issues"
+  },
+  "homepage": "https://github.com/acando14/apidoc#readme"
+}
