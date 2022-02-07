@@ -1,7 +1,7 @@
 const postmanToOpenApi = require("postman-to-openapi");
 
-const createOpenApiFile = async (commandPath, collection) => {
-  const options = {
+const createOpenApiFile = async (collection, options) => {
+  const postmanToOpenApiConfig = {
     auth: {
       oAuth2: {
         type: 'http',
@@ -21,11 +21,12 @@ const createOpenApiFile = async (commandPath, collection) => {
       }
     ]
   }
-  let collectionName = collection.info.name;
-  let groupFolder = `${commandPath}/apidoc/${collectionName}`;
+
+  let collectionName = options.name || collection.info.name;
   const rawCollectionJson = JSON.stringify(collection);
-  const out = `${groupFolder}/${collectionName}.openapi.yaml`;
-  await postmanToOpenApi(rawCollectionJson, out, options);
+
+  const out =   `${options.path}/${collectionName}.openapi.yaml`;
+  await postmanToOpenApi(rawCollectionJson, out, postmanToOpenApiConfig);
 }
 
 exports.createOpenApiFile = createOpenApiFile;

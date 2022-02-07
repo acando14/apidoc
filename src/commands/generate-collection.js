@@ -1,25 +1,42 @@
 #!/usr/bin/env node
-
 const collectionLib = require('../collection');
 const openApiLib = require('../openapi');
-const currentPath = process.cwd();
-const [,, ...args] = process.argv;
 const apiKey = process.env.POSTMAN_APIKEY;
+const yargs = require('yargs/yargs')
+const { hideBin } = require('yargs/helpers')
+const {createDirFolder, deleteFileInFolder} = require("../fileMgr");
+const argv = yargs(hideBin(process.argv)).argv
 let buildOpenApi = true;
 
-if (args[0] === undefined) {
+if (argv.collection === undefined) {
   console.error("The colleciton id must be defined");
   process.exit(1);
 }
 
-if (args[1] === 'false') {
-  console.log("generating only the PostmanCollection");
+if (argv["postman-only"] === 'false') {
+  console.log("Generating only the PostmanCollection");
   buildOpenApi = false;
 }
 
-collectionLib.createCollectionFile(currentPath, apiKey, args[0]).then(
+const options =  {
+  path: argv.path || process.cwd(),
+  name: argv.name
+};
+
+
+createDirFolder(options.path);
+deleteFileInFolder(options.path);
+
+/**
+ * options for create-collection-file:
+ * {
+ *    path: <string>
+ *    name: <string>|<undefined>
+ * }
+ */
+collectionLib.createCollectionFile(apiKey, argv.collection, options).then(
   collection => {
     if (buildOpenApi) {
-      openApiLib.createOpenApiFile(currentPath, collection);
+      openApiLib.createOpenApiFile(collection, options);
     }
   });

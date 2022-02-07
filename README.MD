@@ -12,7 +12,7 @@ All the generated files will be stored in `apidoc` folder.
 
 To view all collections inside a worksapce you can yse this command :
 ```shell
-list-collections xxxxxxxx-c97b-4c10-8b6f-xxxxxxxxxxx
+list-collections --workspace xxxxxxxx-c97b-4c10-8b6f-xxxxxxxxxxx
 ```
 and the output will be :
 
@@ -23,17 +23,18 @@ and the output will be :
 
 ```
 
-If you want to generate a apidoc in both formats (openapi / postman) use:
+If you want to generate a apidoc use:
 
 ```shell
- generate-collection xxxxxxxx-28d8-4844-be04-xxxxxxxxxxx
+ generate-collection
 ```
 
-If you want to generate only the postman-collection use this command :
+With this parameters :
 
-```shell
- generate-collection xxxxxxxx-28d8-4844-be04-xxxxxxxxxxx false
-```
+* --collection : *REQUIRED* collection id. es. xxxxxxxx-28d8-4844-be04-xxxxxxxxxxx 
+* --path : *REQUIRED* path where files will be stored. es. /Users/alessandro/Site/personal/apidoc-gen
+* --name : *REQUIRED* name of the file exported. es. mycollection
+* --postman-only : *REQUIRED* if you want to generate only postman api. es. false/true
 
 #Install
 
