@@ -25,7 +25,7 @@ const createOpenApiFile = async (collection, options) => {
   let collectionName = options.name || collection.info.name;
   const rawCollectionJson = JSON.stringify(collection);
 
-  const out =   `${options.path}/${collectionName}.openapi.yaml`;
+  const out =   `${options.path}/${collectionName}.yaml`;
   await postmanToOpenApi(rawCollectionJson, out, postmanToOpenApiConfig);
 }
 
