@@ -36,6 +36,18 @@ With this parameters :
 * --name : *REQUIRED* name of the file exported. es. mycollection
 * --postman-only : *REQUIRED* if you want to generate only postman api. es. false/true
 
+Some examples :
+
+Relative path, from where is executed the command
+```shell
+generate-collection --collection xxxxxxxx-28d8-4844-be04-xxxxxxxxxxx --path ./test --name=es
+```
+Absolute path
+
+```shell
+generate-collection --collection xxxxxxxx-28d8-4844-be04-xxxxxxxxxxx --path /tmp/test --name=es
+```
+
 #Install
 
 If you want to install the script in another project use this command :
