@@ -6,9 +6,14 @@ const createDirFolder = (path) => {
   }
 }
 
-const deleteFileInFolder = (path) => {
+const deleteFileInFolder = (path, name) => {
   if(fs.existsSync(path)) {
-    fs.readdirSync(path).forEach(f => fs.rmSync(`${path}/${f}`));
+    fs.readdirSync(path).forEach(f => {
+      const fileName = f.replace(/\.[^/.]+$/, "")
+      if(fileName === name) {
+        fs.rmSync(`${path}/${f}`)
+      }
+    });
   }
 }
 

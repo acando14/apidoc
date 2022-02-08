@@ -25,7 +25,7 @@ const options =  {
 
 
 createDirFolder(options.path);
-deleteFileInFolder(options.path);
+deleteFileInFolder(options.path, options.name);
 
 /**
  * options for create-collection-file:
